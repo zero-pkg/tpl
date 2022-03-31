@@ -82,7 +82,7 @@ func (t *Templates) Lookup(name string) *template.Template {
 func (t *Templates) ParseDir(dir string, exts ...string) (*Templates, error) {
 	root := strings.TrimSuffix(filepath.ToSlash(filepath.Clean(dir)), "/") + "/"
 
-	files, err := parseDir(root, exts)
+	files, err := parseDir(root, exts...)
 	if err != nil {
 		return t, err
 	}

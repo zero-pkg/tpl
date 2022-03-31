@@ -4,6 +4,18 @@ import (
 	"testing"
 )
 
+func TestParseDir(t *testing.T) {
+	files, err := parseDir("testdata/", ".html")
+	ok(t, err)
+	equals(t, 6, len(files))
+}
+
+func TestParseDirNotFound(t *testing.T) {
+	files, err := parseDir("nonexists", ".html")
+	assert(t, err != nil, "err is nil")
+	equals(t, 0, len(files))
+}
+
 func TestParseFile(t *testing.T) {
 	file, err := parseFile("testdata/", "testdata/standalone/standalone.html")
 	ok(t, err)

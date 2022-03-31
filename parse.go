@@ -20,7 +20,7 @@ type tplFile struct {
 
 var re = regexp.MustCompile(`(?m)\{\{(\s*)extends\s+["'](.+)["'](\s*)\}\}`)
 
-func parseDir(dir string, exts []string) (map[string]*tplFile, error) {
+func parseDir(dir string, exts ...string) (map[string]*tplFile, error) {
 	e := make(map[string]struct{}, len(exts))
 	for i := range exts {
 		e[exts[i]] = struct{}{}

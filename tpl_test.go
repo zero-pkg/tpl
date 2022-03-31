@@ -42,3 +42,23 @@ func TestExecuteError(t *testing.T) {
 	err = tmpl.Execute(&b, "notfound", "")
 	equals(t, "template notfound is not found", err.Error())
 }
+
+func TestLookup(t *testing.T) {
+	tmpl := New()
+
+	_, err := tmpl.ParseDir("testdata", ".html")
+	ok(t, err)
+
+	template := tmpl.Lookup("standalone/standalone.html")
+	assert(t, template != nil, "template is nil")
+}
+
+func TestLookupNotFound(t *testing.T) {
+	tmpl := New()
+
+	_, err := tmpl.ParseDir("testdata", ".html")
+	ok(t, err)
+
+	template := tmpl.Lookup("notfound")
+	assert(t, template == nil, "template is not nil")
+}
