@@ -1,7 +1,6 @@
 # tpl
 
 [![build](https://github.com/zero-pkg/tpl/actions/workflows/ci.yml/badge.svg)](https://github.com/zero-pkg/tpl/actions/workflows/ci.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/zero-pkg/tpl)](https://goreportcard.com/report/github.com/zero-pkg/tpl)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/zero-pkg/tpl/blob/master/LICENSE)
 
 Provides helpers on top of `html/template` to dynamically parse all templates from a specific directory and provides a unified interface for accessing them. In addition, the package provides the ability to use the Jinja2/Django-like `{{ extends }}` tag.
@@ -12,7 +11,7 @@ Provides helpers on top of `html/template` to dynamically parse all templates fr
 
 ## How to use
 
-```
+```go
 tmpl := tpl.Must(tpl.New().ParseDir("templates", ".html"))
 
 if err := tmpl.Execute(os.Stdout, "content.html", ""); err != nil {
@@ -45,4 +44,4 @@ Rendering `grandchild.html` will give `body: Hi from grandchild.`
 
 ## License
 
-http://www.opensource.org/licenses/mit-license.php
+[MIT](https://opensource.org/license/mit)
