@@ -1,6 +1,6 @@
 module github.com/zero-pkg/tpl/_example
 
-go 1.17
+go 1.26
 
 require github.com/zero-pkg/tpl v0.0.0
 
